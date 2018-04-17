@@ -1,0 +1,41 @@
+1.数据出问题，tansform.resize之后的图片数据出问题
+2.nested layer must be initialized to zeros,fuse layer nust be initialized to 0.2
+3.vgg16出错
+ x=self.conv1_1(x)
+        x=F.relu(x,inplace=True)
+        x=self.conv1_2(x)
+        c1=F.relu(x)
+
+        x=F.max_pool2d(c1,2,2,padding=0)
+        x=self.conv2_1(x)
+        x=F.relu(x)
+        x=self.conv2_2(x)
+        c2=F.relu(x)
+
+        x=F.max_pool2d(c2,2,2,padding=0)
+        x=self.conv3_1(x)
+        x=F.relu(x)
+        x=self.conv3_2(x)
+        x=F.relu(x)
+        x=self.conv3_3(x)
+        c3=F.relu(x)
+
+        x=F.max_pool2d(x,2,2,padding=0)
+        x=self.conv4_1(x)
+        x=F.relu(x)
+        x=self.conv4_2(x)
+        x=F.relu(x)
+        x=self.conv4_3(x)
+        c4=F.relu(x)
+
+        x=F.max_pool2d(x,2,1,padding=0)
+        x=self.conv5_1(x)
+        x=F.relu(x)
+        x=self.conv5_2(x)
+        x=F.relu(x)
+        x=self.conv5_3(x)
+        c5=F.relu(x)
+层之间没有激活
+'/home/mameng/dataset/HED/HED-BSDS/test/326025.jpg'#
+4.SGD学习率太小第5个输出是灰色的，改成1e-3会好点
+5.Adam算法cross_entropy不做平均效果会好点
